@@ -1,6 +1,9 @@
+import 'package:bookly_app/Features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/Features/splash/presentation/views/widgets/sliding_text.dart';
+import 'package:bookly_app/constant.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplasViewBody extends StatefulWidget {
   const SplasViewBody({super.key});
@@ -18,16 +21,8 @@ class _SplasViewBodyState extends State<SplasViewBody>
   @override
   void initState() {
     super.initState();
-
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    slidingAnimation = Tween<Offset>(
-      begin: const Offset(0, 4),
-      end: Offset(0, 0),
-    ).animate(animationController);
-    animationController.forward();
+    homeViewNavigation();
+    initSlidingAnimation();
   }
 
   @override
@@ -47,5 +42,27 @@ class _SplasViewBodyState extends State<SplasViewBody>
         SlidingText(slidingAnimation: slidingAnimation),
       ],
     );
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    slidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 4),
+      end: Offset(0, 0),
+    ).animate(animationController);
+    animationController.forward();
+  }
+
+  void homeViewNavigation() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.to(
+        () => const HomeView(),
+        transition: Transition.fadeIn,
+        duration: kTranstionDuration,
+      );
+    });
   }
 }
