@@ -9,7 +9,15 @@ class SplasViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [Image.asset(AssetsData.logo)],
+      children: [
+        Image.asset(AssetsData.logo),
+        SizedBox(height: 4),
+        const Text(
+          'Read free books',
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 18),
+        ),
+      ],
     );
   }
 }
