@@ -11,12 +11,12 @@ class CustomAppBar extends StatelessWidget {
       padding: const EdgeInsets.only(right: 24, top: 32, bottom: 16),
       child: Row(
         children: [
-          Image.asset(AssetsData.logo, height: 24, width: 75),
+          Image.asset(AssetsData.logo, height: 16.1, width: 75),
           Spacer(),
 
           IconButton(
             onPressed: () {},
-            icon: Icon(FontAwesomeIcons.magnifyingGlass, size: 24),
+            icon: Icon(FontAwesomeIcons.magnifyingGlass, size: 25),
           ),
         ],
       ),

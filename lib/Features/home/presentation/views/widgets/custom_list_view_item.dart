@@ -7,7 +7,7 @@ class FeaturedListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: .669,
+      aspectRatio: 150 / 224,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
