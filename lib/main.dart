@@ -21,7 +21,6 @@ class BooklyApp extends StatelessWidget {
           ThemeData.dark().textTheme,
         ),
       ),
-
       home: const SplashView(),
     );
   }
