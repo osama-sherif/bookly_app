@@ -16,12 +16,12 @@ class BookRating extends StatelessWidget {
         const Icon(
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
-          size: 14,
+          size: 12,
         ),
         const SizedBox(width: 7.1),
-        const Text(style: Styles.textStyle16, '4.8'),
+        const Text(style: Styles.textStyle12, '4.8'),
         const SizedBox(width: 7),
-        Opacity(opacity: .5, child: Text(style: Styles.textStyle14, '(2390)')),
+        Opacity(opacity: .5, child: Text(style: Styles.textStyle12, '(2390)')),
       ],
     );
   }
