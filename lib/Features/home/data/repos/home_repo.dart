@@ -5,6 +5,6 @@ import 'package:dartz/dartz.dart';
 // define the actions of feature put not how to do this actions
 // as the actions may be done with the diffrent ways
 abstract class HomeRepo {
-  Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks();
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks();
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
 }
