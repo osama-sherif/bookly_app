@@ -1,6 +1,10 @@
-// select the actions of feature put not how to do this actions
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/errors/failures.dart';
+import 'package:dartz/dartz.dart';
+
+// define the actions of feature put not how to do this actions
 // as the actions may be done with the diffrent ways
 abstract class HomeRepo {
-  fetchBestSellerBooks();
-  fetchFeaturedBooks();
+  Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
 }
