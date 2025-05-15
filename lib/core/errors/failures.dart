@@ -16,8 +16,6 @@ class ServerFailure extends Failure {
         return ServerFailure('Send timeout with ApiServer');
       case DioExceptionType.receiveTimeout:
         return ServerFailure('Receive timeout with ApiServer');
-      case DioExceptionType.badCertificate:
-        throw UnimplementedError();
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
           dioError.response!.statusCode,
@@ -25,15 +23,15 @@ class ServerFailure extends Failure {
         );
       case DioExceptionType.cancel:
         return ServerFailure('Request to Api was canceld');
-
-      case DioExceptionType.connectionError:
-        // TODO: Handle this case.
-        throw UnimplementedError();
       case DioExceptionType.unknown:
         if (dioError.message!.contains('SocketException')) {
           return ServerFailure('No internet connection');
         }
         return ServerFailure('Unexpected error ,please try again');
+      case DioExceptionType.connectionError:
+        throw UnimplementedError();
+      case DioExceptionType.badCertificate:
+        throw UnimplementedError();
     }
   }
   factory ServerFailure.fromResponse(
