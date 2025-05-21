@@ -8,19 +8,23 @@ import 'package:dio/dio.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
   HomeRepoImpl(this.apiService);
-  final newestBooksRequest =
-      'volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming';
-  final featuredBooksRequest =
-      'volumes?Filtering=free-ebooks&q=subject:programming';
+
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
     try {
       // Api request
-      var data = await apiService.get(endPoints: newestBooksRequest);
+      var data = await apiService.get(
+        endPoints:
+            'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science',
+      );
       // Parsing Json data to BookModel
       List<BookModel> books = [];
-      for (var item in data['item']) {
-        books.add(BookModel.fromJson(item));
+      for (var item in data['items']) {
+        try {
+          books.add(BookModel.fromJson(item));
+        } catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
       return right(books);
     } catch (ex) {
@@ -36,12 +40,16 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       // Api request
-      var data = await apiService.get(endPoints: featuredBooksRequest);
+      var data = await apiService.get(
+        endPoints: 'volumes?Filtering=free-ebooks&q=subject:Programming',
+      );
       // Parsing Json data to BookModel
       List<BookModel> books = [];
-      for (var item in data['item']) {
+
+      for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
       }
+
       return right(books);
     } catch (ex) {
       if (ex is DioException) {

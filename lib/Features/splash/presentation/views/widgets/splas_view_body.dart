@@ -20,8 +20,8 @@ class _SplasViewBodyState extends State<SplasViewBody>
   @override
   void initState() {
     super.initState();
-    homeViewNavigation();
     initSlidingAnimation();
+    navigationToHome();
   }
 
   @override
@@ -55,7 +55,7 @@ class _SplasViewBodyState extends State<SplasViewBody>
     animationController.forward();
   }
 
-  void homeViewNavigation() {
+  void navigationToHome() {
     Future.delayed(const Duration(seconds: 2), () {
       GoRouter.of(context).push(AppRouter.kHomeView);
     });
