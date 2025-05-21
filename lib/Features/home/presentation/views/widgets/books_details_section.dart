@@ -15,7 +15,10 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * .24,
           ),
-          child: const CustomBookItem(),
+          child: const CustomBookItem(
+            imageUrl:
+                'https://www.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_24307396.htm#fromView=keyword&page=1&position=0&uuid=c70f4611-157f-452c-864a-5602d9bc9fc0&query=Book+Illustration',
+          ),
         ),
         const SizedBox(height: 24),
         const Text('The Jungle Book', style: Styles.textStyle28),
