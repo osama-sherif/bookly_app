@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/app_router.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomBookItem extends StatelessWidget {
@@ -12,15 +13,15 @@ class CustomBookItem extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetilsView);
       },
-      child: AspectRatio(
-        aspectRatio: 150 / 224,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: NetworkImage(imageUrl),
-            ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: AspectRatio(
+          aspectRatio: 150 / 224,
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
+            errorWidget: (context, url, error) {
+              return const Icon(FontAwesomeIcons.exclamation);
+            },
           ),
         ),
       ),
