@@ -1,5 +1,5 @@
 import 'package:bookly_app/Features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:bookly_app/Features/home/presentation/views/widgets/best_seller_list_view_item.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/newst_books_ist_view_item.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_error_widget.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/cutom_loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +16,11 @@ class NewestBooksListView extends StatelessWidget {
           return ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            itemCount: 5,
+            itemCount: state.books.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.5),
-                child: BookListViewItem(),
+                child: BookListViewItem(book: state.books[index]),
               );
             },
           );

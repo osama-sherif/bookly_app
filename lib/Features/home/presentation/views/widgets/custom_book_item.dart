@@ -1,7 +1,8 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+
 import 'package:go_router/go_router.dart';
 
 class CustomBookItem extends StatelessWidget {
@@ -17,12 +18,7 @@ class CustomBookItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: AspectRatio(
           aspectRatio: 150 / 224,
-          child: CachedNetworkImage(
-            imageUrl: imageUrl,
-            errorWidget: (context, url, error) {
-              return const Icon(FontAwesomeIcons.exclamation);
-            },
-          ),
+          child: CustomBookImage(imageUrl: imageUrl),
         ),
       ),
     );
