@@ -1,5 +1,3 @@
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
-import 'package:bookly_app/Features/home/presentation/views/widgets/newst_books_ist_view_item.dart';
 import 'package:flutter/widgets.dart';
 
 class SearchResultListView extends StatelessWidget {

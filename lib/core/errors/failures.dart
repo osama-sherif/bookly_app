@@ -25,11 +25,13 @@ class ServerFailure extends Failure {
         return ServerFailure('Request to Api was canceld');
       case DioExceptionType.unknown:
         if (dioError.message!.contains('SocketException')) {
-          return ServerFailure('No internet connection');
+          return ServerFailure(
+            'No internet connection , please try again later',
+          );
         }
-        return ServerFailure('Unexpected error ,please try again');
+        return ServerFailure('Unexpected error , please try again');
       case DioExceptionType.connectionError:
-        throw UnimplementedError();
+        return ServerFailure('No internet connection');
       case DioExceptionType.badCertificate:
         throw UnimplementedError();
     }

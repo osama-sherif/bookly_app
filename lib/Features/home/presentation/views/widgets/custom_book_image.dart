@@ -10,6 +10,7 @@ class CustomBookImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
+      fit: BoxFit.fill,
       imageUrl: imageUrl,
       errorWidget: (context, url, error) {
         return const Icon(FontAwesomeIcons.exclamation);

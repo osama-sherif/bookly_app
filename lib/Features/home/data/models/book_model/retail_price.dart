@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class RetailPrice extends Equatable {
-  final dynamic? amount;
+  final dynamic amount;
   final String? currencyCode;
 
   const RetailPrice({this.amount, this.currencyCode});
