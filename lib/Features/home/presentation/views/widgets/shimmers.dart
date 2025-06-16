@@ -22,7 +22,7 @@ class NewestBooksShimmerAnimation extends StatelessWidget {
                     aspectRatio: 70 / 105,
                     child: Container(color: Colors.grey.shade400),
                   ),
-                  SizedBox(width: 30),
+                  const SizedBox(width: 30),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,20 +32,20 @@ class NewestBooksShimmerAnimation extends StatelessWidget {
                           height: 10,
                           color: Colors.grey.shade400,
                         ),
-                        SizedBox(height: 3),
+                        const SizedBox(height: 3),
 
                         Container(
                           width: MediaQuery.of(context).size.width * .5,
                           height: 10,
                           color: Colors.grey.shade400,
                         ),
-                        SizedBox(height: 3),
+                        const SizedBox(height: 3),
                         Container(
                           width: MediaQuery.of(context).size.width * .5,
                           height: 10,
                           color: Colors.grey.shade400,
                         ),
-                        SizedBox(height: 3),
+                        const SizedBox(height: 3),
                         Row(
                           children: [
                             Container(
