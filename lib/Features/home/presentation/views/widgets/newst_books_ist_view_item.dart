@@ -14,7 +14,7 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetilsView);
+        GoRouter.of(context).push(AppRouter.kBookDetilsView, extra: book);
       },
       child: SizedBox(
         height: 125,
@@ -25,7 +25,7 @@ class BookListViewItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: CustomBookImage(
-                  imageUrl: book.volumeInfo.imageLinks.thumbnail,
+                  imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
                 ),
               ),
             ),
@@ -57,8 +57,8 @@ class BookListViewItem extends StatelessWidget {
                       SizedBox(width: 40.3),
                       BookRating(
                         // the rating and count doesn't avilable in the api
-                        rating: book.volumeInfo.maturityRating!,
-                        count: book.volumeInfo.contentVersion!,
+                        rating: '4.8',
+                        count: '(2839)',
                       ),
                     ],
                   ),
